@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1C1C1E" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="美國行" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+
+  <title>Let's go to America</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ═══════════════════════════════════ HOME ═══════════════════════════════════ -->
+  <div class="page" data-page="home">
+    <div class="home">
+
+      <!-- ① 標題區 -->
+      <header class="home-header">
+        <div class="header-left">
+          <p class="header-date">MAY 2026</p>
+          <h1 class="header-title">
+            <span class="title-top">Let's go to</span>
+            <span class="title-main">America</span>
+          </h1>
+        </div>
+
+        <div class="header-weather">
+          <svg class="weather-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1"  x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1"  y1="12" x2="3"  y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+            <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+          </svg>
+          <span class="weather-temp">22°</span>
+        </div>
+      </header>
+
+      <!-- ② 六個方塊（3×2）: 行前 / 航班 / 海關 / 翻譯 / 行程 / 緊急 -->
+      <section class="card-grid">
+
+        <!-- 行前 -->
+        <button class="card-btn" data-section="prep">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          <span class="card-label">行前</span>
+          <span class="card-sublabel">Before You Go</span>
+        </button>
+
+        <!-- 航班 -->
+        <button class="card-btn" data-section="flight">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-1.1 0-2 .5-2.5 1L13 8.8
+                     4.8 6.2 3 8l4.3 4L4 15l-1 3 3-1 3.3-3.3 4 4.3z"/>
+          </svg>
+          <span class="card-label">航班</span>
+          <span class="card-sublabel">Flights</span>
+        </button>
+
+        <!-- 海關 -->
+        <button class="card-btn" data-section="customs">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <circle cx="12" cy="10" r="3"/>
+            <line x1="8"  y1="16" x2="16" y2="16"/>
+            <line x1="9"  y1="19" x2="15" y2="19"/>
+          </svg>
+          <span class="card-label">海關</span>
+          <span class="card-sublabel">Customs</span>
+        </button>
+
+        <!-- 翻譯 -->
+        <button class="card-btn" data-section="translate">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span class="card-label">翻譯</span>
+          <span class="card-sublabel">Translate</span>
+        </button>
+
+        <!-- 行程 -->
+        <button class="card-btn" data-section="itinerary">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span class="card-label">行程</span>
+          <span class="card-sublabel">Itinerary</span>
+        </button>
+
+        <!-- 緊急 -->
+        <button class="card-btn card-emergency" data-section="emergency">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                     19.79 19.79 0 0 1-8.63-3.07
+                     A19.5 19.5 0 0 1 4.69 13
+                     a19.79 19.79 0 0 1-3.07-8.67
+                     A2 2 0 0 1 3.55 2h3
+                     a2 2 0 0 1 2 1.72
+                     12.84 12.84 0 0 0 .7 2.81
+                     2 2 0 0 1-.45 2.11L8.09 9.91
+                     a16 16 0 0 0 6 6l1.27-1.27
+                     a2 2 0 0 1 2.11-.45
+                     12.84 12.84 0 0 0 2.81.7
+                     A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="card-label">緊急</span>
+          <span class="card-sublabel">SOS</span>
+        </button>
+
+      </section>
+    </div><!-- .home -->
+  </div><!-- [data-page="home"] -->
+
+
+  <!-- ══════════════════════════════════ CUSTOMS ══════════════════════════════════ -->
+  <div class="page" data-page="customs" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2" width="16" height="20" rx="2"/>
+          <circle cx="12" cy="10" r="3"/>
+          <line x1="8"  y1="16" x2="16" y2="16"/>
+          <line x1="9"  y1="19" x2="15" y2="19"/>
+        </svg>
+        <h2 class="inner-title">海關問答</h2>
+      </div>
+      <p class="inner-subtitle">過海關時把手機拿給海關官員看</p>
+      <p class="inner-subtitle">Show this to the customs officer</p>
+
+      <!-- 卡片 0：開場 Notice（橘色左邊框） -->
+      <div class="qa-card qa-card--notice">
+        <p class="qa-label">NOTICE / 注意</p>
+        <p class="qa-en">"I don't speak English well. Please show me questions on paper."</p>
+        <p class="qa-zh">我不太會說英文，請寫下來問我</p>
+      </div>
+
+      <!-- 卡片 1：探親目的 -->
+      <div class="qa-card">
+        <p class="qa-label">PURPOSE OF VISIT / 旅遊目的</p>
+        <p class="qa-en">"Visiting my daughter / niece Yu-Ting (Rita) for her graduation."</p>
+        <p class="qa-zh">參加我女兒/姪女 Yu-Ting 的畢業典禮</p>
+      </div>
+
+      <!-- 卡片 2：停留時間 -->
+      <div class="qa-card">
+        <p class="qa-label">LENGTH OF STAY / 待多久</p>
+        <p class="qa-en">11 days</p>
+        <p class="qa-detail">May 9 → May 19, 2026</p>
+        <p class="qa-zh">11 天</p>
+      </div>
+
+      <!-- 卡片 3：住址 -->
+      <div class="qa-card">
+        <p class="qa-label">WHERE I'M STAYING / 住哪裡</p>
+        <p class="qa-en">3701 Lindell Blvd, St. Louis, MO 63108</p>
+        <p class="qa-detail">(My daughter / niece's residence)</p>
+        <p class="qa-zh">我女兒/姪女家</p>
+      </div>
+
+      <!-- 卡片 4：職業 -->
+      <div class="qa-card">
+        <p class="qa-label">OCCUPATION / 職業</p>
+        <p class="qa-body">CHIUMEI Huang (Mom): Retired</p>
+        <p class="qa-body">CHIUMING Huang (Aunt): Engineer</p>
+      </div>
+
+      <!-- 卡片 5：食物 -->
+      <div class="qa-card">
+        <p class="qa-label">CARRYING FOOD? / 有帶食物嗎</p>
+        <p class="qa-en">Yes, I declare:</p>
+        <p class="qa-detail">• Packaged snacks (cookies, candies)</p>
+        <p class="qa-detail">• Instant noodles (vegetarian / seafood flavor only, no meat)</p>
+        <p class="qa-detail">• Tea bags</p>
+        <p class="qa-detail">No fresh meat, no fresh fruit, no seeds.</p>
+        <p class="qa-zh">帶了：包裝零食、素食泡麵、茶包。沒有生肉、水果、種子</p>
+      </div>
+
+      <!-- 卡片 6：現金 -->
+      <div class="qa-card">
+        <p class="qa-label">CASH / 現金</p>
+        <p class="qa-en">About $100 USD per person</p>
+        <p class="qa-zh">每人約 100 美金</p>
+      </div>
+
+      <!-- 卡片 7：回程機票 -->
+      <div class="qa-card">
+        <p class="qa-label">RETURN FLIGHT / 回程</p>
+        <p class="qa-en">EVA Air BR 55</p>
+        <p class="qa-detail">ORD → TPE</p>
+        <p class="qa-detail">May 19, 2026, 00:30</p>
+      </div>
+
+      <!-- 卡片 8：聯絡（綠色左邊框，電話可點） -->
+      <div class="qa-card qa-card--contact">
+        <p class="qa-label">MY DAUGHTER / NIECE / 我女兒/姪女</p>
+        <p class="qa-en">Yu-Ting (Rita) Huang</p>
+        <a class="qa-phone" href="tel:+13145569217">(314) 556-9217</a>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="customs"] -->
+
+
+  <!-- ═════════════════════════════════ EMERGENCY ═════════════════════════════════ -->
+  <div class="page" data-page="emergency" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                   19.79 19.79 0 0 1-8.63-3.07
+                   A19.5 19.5 0 0 1 4.69 13
+                   a19.79 19.79 0 0 1-3.07-8.67
+                   A2 2 0 0 1 3.55 2h3
+                   a2 2 0 0 1 2 1.72
+                   12.84 12.84 0 0 0 .7 2.81
+                   2 2 0 0 1-.45 2.11L8.09 9.91
+                   a16 16 0 0 0 6 6l1.27-1.27
+                   a2 2 0 0 1 2.11-.45
+                   12.84 12.84 0 0 0 2.81.7
+                   A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <h2 class="inner-title">緊急聯絡</h2>
+      </div>
+      <p class="inner-subtitle">遇到問題不要慌！找到能幫忙的人</p>
+
+      <!-- 卡片 1：Rita（綠色左邊框，兩個按鈕） -->
+      <div class="call-card call-card--daughter">
+        <p class="call-card-label">MY DAUGHTER / NIECE · 女兒/姪女</p>
+        <p class="call-card-name">Rita (Yu-Ting) Huang</p>
+        <div class="call-card-actions">
+          <a class="call-btn call-btn--green" href="tel:+13145569217">📞 撥打</a>
+          <a class="call-btn call-btn--blue" href="https://line.me/R/" target="_blank">💬 LINE</a>
+        </div>
+      </div>
+
+      <!-- 卡片 2：911（橘色左邊框） -->
+      <div class="call-card call-card--urgent">
+        <p class="call-card-label">EMERGENCY · 緊急</p>
+        <p class="call-card-name">911</p>
+        <p class="call-card-desc">報警、救護車、火警（生命危險時打）</p>
+        <div class="call-card-actions">
+          <a class="call-btn call-btn--orange" href="tel:911">📞 撥打</a>
+        </div>
+      </div>
+
+      <!-- 卡片 3：TECO Chicago -->
+      <div class="call-card">
+        <p class="call-card-label">駐芝加哥台北經濟文化辦事處</p>
+        <p class="call-card-name">+1-312-616-0100</p>
+        <p class="call-card-desc">護照遺失、急難救助</p>
+        <div class="call-card-actions">
+          <a class="call-btn call-btn--dark" href="tel:+13126160100">📞 撥打</a>
+        </div>
+      </div>
+
+      <!-- 卡片 4：旅外急難專線 -->
+      <div class="call-card">
+        <p class="call-card-label">Taiwan 24hr Hotline · 旅外國人急難救助</p>
+        <p class="call-card-name">+1-202-731-7980</p>
+        <p class="call-card-desc">外交部 24 小時專線</p>
+        <div class="call-card-actions">
+          <a class="call-btn call-btn--dark" href="tel:+12027317980">📞 撥打</a>
+        </div>
+      </div>
+
+      <!-- 卡片 5：求助提醒（純文字，米色底） -->
+      <div class="tip-card">
+        <p>💡 聽聽旁邊有沒有人講中文</p>
+        <p>可以請他們幫忙翻譯或撥電話</p>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="emergency"] -->
+
+
+  <!-- ══════════════════════════════════ FLIGHTS ══════════════════════════════════ -->
+  <div class="page" data-page="flight" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-1.1 0-2 .5-2.5 1L13 8.8
+                   4.8 6.2 3 8l4.3 4L4 15l-1 3 3-1 3.3-3.3 4 4.3z"/>
+        </svg>
+        <h2 class="inner-title">航班資訊</h2>
+      </div>
+      <p class="inner-subtitle">長榮航空 EVA Air</p>
+
+      <!-- 去程：BR56 TPE → ORD -->
+      <div class="flight-card">
+        <div class="flight-card-header">
+          <span class="flight-badge flight-badge--outbound">去程</span>
+          <span class="flight-number">EVA Air BR 56</span>
+        </div>
+        <div class="flight-route">
+          <div class="flight-leg">
+            <p class="flight-code">TPE</p>
+            <p class="flight-city">台北桃園</p>
+            <p class="flight-time">20:00</p>
+            <p class="flight-date">5/9 週六</p>
+            <p class="flight-terminal">第二航廈</p>
+          </div>
+          <div class="flight-mid">
+            <span class="flight-arrow">→</span>
+            <span class="flight-duration">約 13 小時</span>
+          </div>
+          <div class="flight-leg flight-leg--right">
+            <p class="flight-code">ORD</p>
+            <p class="flight-city">芝加哥</p>
+            <p class="flight-time">21:00</p>
+            <p class="flight-date">5/9 週六</p>
+            <p class="flight-terminal">第五航廈</p>
+          </div>
+        </div>
+        <div class="flight-tip">💡 抵達後出第五航廈，Rita 會在 Arrivals 出口等</div>
+      </div>
+
+      <!-- 回程：BR55 ORD → TPE -->
+      <div class="flight-card">
+        <div class="flight-card-header">
+          <span class="flight-badge flight-badge--return">回程</span>
+          <span class="flight-number">EVA Air BR 55</span>
+        </div>
+        <div class="flight-route">
+          <div class="flight-leg">
+            <p class="flight-code">ORD</p>
+            <p class="flight-city">芝加哥</p>
+            <p class="flight-time">00:30</p>
+            <p class="flight-date">5/19 週二凌晨</p>
+            <p class="flight-terminal">第五航廈</p>
+            <p class="flight-warning">⚠️ 5/18 晚上要到機場</p>
+          </div>
+          <div class="flight-mid">
+            <span class="flight-arrow">→</span>
+            <span class="flight-duration">約 16 小時</span>
+          </div>
+          <div class="flight-leg flight-leg--right">
+            <p class="flight-code">TPE</p>
+            <p class="flight-city">台北桃園</p>
+            <p class="flight-time">05:00</p>
+            <p class="flight-date">5/20 週三早上</p>
+            <p class="flight-terminal">第二航廈</p>
+          </div>
+        </div>
+        <div class="flight-tip">💡 凌晨班機，5/18（週一）晚上 9 點前要到 ORD 機場 check-in</div>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="flight"] -->
+
+
+  <!-- ════════════════════════════════════ PREP ════════════════════════════════════ -->
+  <div class="page" data-page="prep" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 11 12 14 22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <h2 class="inner-title">行前準備</h2>
+      </div>
+      <p class="inner-subtitle">出發前檢查清單</p>
+
+      <!-- 手風琴 1：絕對不能帶（紅色警告） -->
+      <div class="accordion">
+        <button class="accordion-btn" data-accordion="1">
+          <span class="accordion-label">🚫 絕對不能帶</span>
+          <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="accordion-content" data-accordion="1" hidden>
+          <ul>
+            <li>打火機、火柴（液體、氣體、固體通通禁止）</li>
+            <li>管制刀具（瑞士刀、折刀、水果刀）</li>
+            <li>液體容器不超過 100ml（隨身行李限制，托運不受此限）</li>
+            <li>電池組（非設備內的電池）</li>
+            <li>爆竹、煙火</li>
+            <li>磁鐵、強力膠、油漆</li>
+          </ul>
+          <div class="accordion-tip">⚠️ 違者罰款 US$400-7,500，嚴重者可能面臨法律後果</div>
+        </div>
+      </div>
+
+      <!-- 手風琴 2：必要文件 -->
+      <div class="accordion">
+        <button class="accordion-btn" data-accordion="2">
+          <span class="accordion-label">📄 必要文件</span>
+          <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="accordion-content" data-accordion="2" hidden>
+          <ul>
+            <li>護照（Passport）：效期需在 6 個月以上</li>
+            <li>ESTA 證明：雖然系統有，但印出來最保險</li>
+            <li>紙本來回機票行程單：海關有時會要求看「離境證明」</li>
+            <li>海關溝通卡：手機裡的海關問答頁</li>
+            <li>保險：保旅平險</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 手風琴 3：衣物準備 -->
+      <div class="accordion">
+        <button class="accordion-btn" data-accordion="3">
+          <span class="accordion-label">👕 衣物準備</span>
+          <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="accordion-content" data-accordion="3" hidden>
+          <p style="font-size: var(--fs-xs); color: var(--ink-mute); margin-bottom: var(--space-3);">以下為參考，可依個人需求調整</p>
+          <ul>
+            <li>薄長袖</li>
+            <li>短袖</li>
+            <li>一件薄外套</li>
+            <li>運動鞋（帶一雙）+ 拖鞋</li>
+            <li>想帶其他鞋子也可以</li>
+            <li>頸枕（長途飛機用）</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 手風琴 4：金錢與通訊 -->
+      <div class="accordion">
+        <button class="accordion-btn" data-accordion="4">
+          <span class="accordion-label">💳 金錢與通訊</span>
+          <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="accordion-content" data-accordion="4" hidden>
+          <ul>
+            <li>💵 現金：換 US$100 美金</li>
+            <li>📱 網卡：下飛機前換 SIM 卡。最重要的是：下飛機就能傳 LINE 給 Rita</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 手風琴 5：隨身行李小提醒 -->
+      <div class="accordion">
+        <button class="accordion-btn" data-accordion="5">
+          <span class="accordion-label">✈️ 隨身行李小提醒</span>
+          <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="accordion-content" data-accordion="5" hidden>
+          <ul>
+            <li>📱 護照、機票、ESTA 確認信（隨身）</li>
+            <li>💊 常用藥物、眼鏡、隱形眼鏡（隨身）</li>
+            <li>🎧 耳機、充電線、行動電源</li>
+            <li>🧴 換洗衣物 1 套（行李延誤用）</li>
+            <li>📖 旅遊指南、筆、記事本</li>
+            <li>💼 重要文件副本</li>
+            <li>🚫 液體、膠狀、噴霧須放託運行李</li>
+            <li>❄️ 飛機上冷，帶一件薄外套</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="prep"] -->
+
+
+  <!-- ════════════════════════════════════ PACKING ═══════════════════════════════════ -->
+  <div class="page" data-page="packing" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 11 12 14 22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <h2 class="inner-title">行李清單</h2>
+      </div>
+      <p class="inner-subtitle">打勾記得打包喔！</p>
+
+      <!-- 分類 1：文件 -->
+      <div class="checklist-section">
+        <h3 class="checklist-title">📄 文件</h3>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="docs">
+          <span class="checklist-text">護照</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="docs">
+          <span class="checklist-text">機票 / 登機證</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="docs">
+          <span class="checklist-text">ESTA 確認信</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="docs">
+          <span class="checklist-text">海關沟通卡</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="docs">
+          <span class="checklist-text">保險證明</span>
+        </label>
+      </div>
+
+      <!-- 分類 2：衣物 -->
+      <div class="checklist-section">
+        <h3 class="checklist-title">👕 衣物</h3>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">薄長袖</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">短袖</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">一件薄外套</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">運動鞋</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">拖鞋</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">頸枕</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">內衣褲</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="clothes">
+          <span class="checklist-text">壓力襪（飛機上穿）</span>
+        </label>
+      </div>
+
+      <!-- 分類 3：日用品 -->
+      <div class="checklist-section">
+        <h3 class="checklist-title">🧴 日用品</h3>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">牙刷 / 牙膏</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">毛巾（含面巾）</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">沐浴乳（託運）</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">洗髮精（託運）</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">護膚品（託運）</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">髮梳</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">指甲刀</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">常用藥物</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="toiletries">
+          <span class="checklist-text">眼鏡 / 隱形眼鏡</span>
+        </label>
+      </div>
+
+      <!-- 分類 4：電子產品 -->
+      <div class="checklist-section">
+        <h3 class="checklist-title">📱 電子產品</h3>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">手機</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">充電器</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">行動電源</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">轉接頭 / 變壓器</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">耳機</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="electronics">
+          <span class="checklist-text">相機（選用）</span>
+        </label>
+      </div>
+
+      <!-- 分類 5：食物 -->
+      <div class="checklist-section">
+        <h3 class="checklist-title">🍜 食物</h3>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="food">
+          <span class="checklist-text">泡麵（素食／海鮮）</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="food">
+          <span class="checklist-text">餅乾 / 零食</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="food">
+          <span class="checklist-text">茶包 / 咖啡</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="food">
+          <span class="checklist-text">維他命補充品</span>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" class="checklist-check" data-category="food">
+          <span class="checklist-text">糖 / 喉糖</span>
+        </label>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="packing"] -->
+
+
+  <!-- ════════════════════════════════════ TRANSLATE ════════════════════════════════ -->
+  <div class="page" data-page="translate" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <h2 class="inner-title">翻譯工具</h2>
+      </div>
+      <p class="inner-subtitle">遇到聽不懂的時候，把手機拿給別人看</p>
+
+      <!-- Google 翻譯連結 -->
+      <a href="https://translate.google.com/?sl=zh-TW&tl=en" target="_blank" class="translate-link-card">
+        <p class="translate-link-title">打開 Google 翻譯</p>
+        <p class="translate-link-subtitle">輸入中文自動翻譯成英文</p>
+      </a>
+
+      <!-- 情境 1：問路 / 緊急 -->
+      <div class="dialog-section">
+        <h3 class="dialog-section-title">🗺️ 問路 / 緊急</h3>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問廁所在哪裡？</p>
+          <div class="dialog-en">"Where is the restroom?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問最近的地鐵站在哪？</p>
+          <div class="dialog-en">"Where is the nearest train station?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我迷路了，可以幫我嗎？</p>
+          <div class="dialog-en">"I'm lost, can you help me?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我生病了，需要去醫院</p>
+          <div class="dialog-en">"I'm sick, I need to go to a hospital."</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我需要警察，請叫 911</p>
+          <div class="dialog-en">"I need police, please call 911."</div>
+        </div>
+      </div>
+
+      <!-- 情境 2：餐廳 -->
+      <div class="dialog-section">
+        <h3 class="dialog-section-title">🍽️ 餐廳</h3>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我想要點無麩質餐點</p>
+          <div class="dialog-en">"I would like a gluten-free option, please."</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問能不能加熱？</p>
+          <div class="dialog-en">"Can you heat this up for me, please?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我不吃牛肉 / 豬肉 / 海鮮</p>
+          <div class="dialog-en">"I don't eat beef / pork / seafood."</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問素食選項有什麼？</p>
+          <div class="dialog-en">"What vegetarian options do you have?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">可以要個杯子裝冰水嗎？</p>
+          <div class="dialog-en">"Can I have a cup of ice water, please?"</div>
+        </div>
+      </div>
+
+      <!-- 情境 2：搭車 -->
+      <div class="dialog-section">
+        <h3 class="dialog-section-title">🚗 搭車 / Uber</h3>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我要去這個地址，謝謝</p>
+          <div class="dialog-en">"I'm going to this address, thank you."</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問停哪裡比較近？</p>
+          <div class="dialog-en">"Where's the closest place to drop me off?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">可以開冷氣嗎？</p>
+          <div class="dialog-en">"Can you turn on the AC, please?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">可以開窗戶嗎？</p>
+          <div class="dialog-en">"Can you open the window, please?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">我需要在這裡停一下</p>
+          <div class="dialog-en">"I need to make a quick stop here."</div>
+        </div>
+      </div>
+
+      <!-- 情境 3：購物 -->
+      <div class="dialog-section">
+        <h3 class="dialog-section-title">🛍️ 購物</h3>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問有大尺寸嗎？</p>
+          <div class="dialog-en">"Do you have this in a larger size?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">試穿室在哪裡？</p>
+          <div class="dialog-en">"Where's the fitting room?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">可以便宜一點嗎？</p>
+          <div class="dialog-en">"Is there a discount available?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">你們收台幣嗎？</p>
+          <div class="dialog-en">"Do you take Taiwan currency?"</div>
+        </div>
+
+        <div class="dialog-card">
+          <p class="dialog-zh">請問在哪裡結帳？</p>
+          <div class="dialog-en">"Where is the checkout?"</div>
+        </div>
+      </div>
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="translate"] -->
+
+
+  <!-- ════════════════════════════════════ ITINERARY ════════════════════════════════ -->
+  <div class="page" data-page="itinerary" hidden>
+    <div class="inner-page">
+
+      <button class="back-btn" data-back="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        回主頁
+      </button>
+
+      <div class="inner-header">
+        <svg class="inner-header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <h2 class="inner-title">每日行程</h2>
+      </div>
+      <p class="inner-subtitle">May 9 — May 19, 2026</p>
+
+      <!-- Timeline Container -->
+      <div class="timeline">
+
+        <!-- Day 1: Plane Icon, Orange -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-orange);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="1">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 1 · 5/9 週六</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                  </svg>
+                  <span>降落芝加哥</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">晚上</span>
+                <div>
+                  <p class="timeline-zh">抵達芝加哥 ORD 機場</p>
+                  <p class="timeline-en">Arrive at O'Hare Airport (ORD)</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=OHare+Airport+Terminal+5" target="_blank" class="timeline-address">O'Hare International Airport, Terminal 5</a>
+                  <p class="timeline-note">出第五航廈 → Rita 會在 Arrivals 出口等</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">晚上</span>
+                <div>
+                  <p class="timeline-zh">前往芝加哥市區飯店</p>
+                  <p class="timeline-en">Hotel Check-in (Downtown Chicago)</p>
+                  <p class="timeline-note">先休息調時差</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2: Car Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="2">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 2 · 5/10 週日</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="16" r="2"/><circle cx="18" cy="16" r="2"/><path d="M2 12h20v4H2z"/><path d="M3 12c0-2 2-4 4-4h10c2 0 4 2 4 4"/><rect x="7" y="8" width="3" height="2"/><rect x="14" y="8" width="3" height="2"/>
+                  </svg>
+                  <span>芝加哥→聖路易</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">體驗美國地鐵</p>
+                  <p class="timeline-en">Chicago "L" Train Experience</p>
+                  <p class="timeline-note">搭芝加哥地鐵進市區</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">千禧公園</p>
+                  <p class="timeline-en">Millennium Park</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Park+Chicago" target="_blank" class="timeline-address">201 E Randolph St, Chicago, IL 60602</a>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">千禧公園露天音樂廳</p>
+                  <p class="timeline-en">Jay Pritzker Pavilion</p>
+                  <p class="timeline-note">千禧公園內，建築很有特色</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">白金漢噴泉</p>
+                  <p class="timeline-en">Buckingham Fountain</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Buckingham+Fountain+Chicago" target="_blank" class="timeline-address">301 S Columbus Dr, Chicago, IL 60605</a>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">中午</span>
+                <div>
+                  <p class="timeline-zh">芝加哥河畔午餐</p>
+                  <p class="timeline-en">Chicago Riverwalk Lunch</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Chicago+Riverwalk" target="_blank" class="timeline-address">Chicago Riverwalk</a>
+                  <p class="timeline-note">沿河邊有很多餐廳</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">芝加哥劇院招牌拍照</p>
+                  <p class="timeline-en">Chicago Theatre Sign Photo</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Chicago+Theatre" target="_blank" class="timeline-address">175 N State St, Chicago, IL 60601</a>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">Route 66 起點牌拍照</p>
+                  <p class="timeline-en">Route 66 Begin Sign</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Route+66+Begin+Sign+Chicago" target="_blank" class="timeline-address">E Adams St & S Michigan Ave, Chicago, IL 60603</a>
+                  <p class="timeline-note">快速拍照留念</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">開 I-55 南下前往 St. Louis</p>
+                  <p class="timeline-en">Drive I-55 South to St. Louis</p>
+                  <p class="timeline-note">車程約 5 小時</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">中途</span>
+                <div>
+                  <p class="timeline-zh">Pontiac 停靠休息</p>
+                  <p class="timeline-en">Pontiac, IL（Route 66 小鎮）</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Pontiac+IL" target="_blank" class="timeline-address">Pontiac, IL</a>
+                  <p class="timeline-note">唯一停點，拍照 + 上廁所</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">晚上</span>
+                <div>
+                  <p class="timeline-zh">抵達 St. Louis</p>
+                  <p class="timeline-en">Arrive in St. Louis</p>
+                  <p class="timeline-note">到家休息</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3: Building Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="3">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 3 · 5/11 週一</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="3" width="16" height="18" rx="1"/><rect x="6" y="5" width="3" height="3"/><rect x="11" y="5" width="3" height="3"/><rect x="16" y="5" width="2" height="3"/><rect x="6" y="10" width="3" height="3"/><rect x="11" y="10" width="3" height="3"/><rect x="16" y="10" width="2" height="3"/><rect x="8" y="16" width="8" height="4" rx="1"/>
+                  </svg>
+                  <span>城市探索</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">聖路易大學校園</p>
+                  <p class="timeline-en">Saint Louis University (SLU)</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Saint+Louis+University" target="_blank" class="timeline-address">1 N Grand Blvd, St. Louis, MO 63103</a>
+                  <p class="timeline-note">Rita 的學校（約 30-45 分鐘）</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">中午</span>
+                <div>
+                  <p class="timeline-zh">Gateway Arch 大拱門</p>
+                  <p class="timeline-en">Gateway Arch National Park</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Gateway+Arch+St+Louis" target="_blank" class="timeline-address">11 N 4th St, St. Louis, MO 63102</a>
+                  <p class="timeline-note">St. Louis 地標（約 45-60 分鐘）</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">中午</span>
+                <div>
+                  <p class="timeline-zh">The Hill 義大利區午餐</p>
+                  <p class="timeline-en">The Hill (Italian Neighborhood)</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=The+Hill+St+Louis" target="_blank" class="timeline-address">The Hill, St. Louis, MO</a>
+                  <p class="timeline-note">義大利社區，最安全又好吃</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">古董店隨意逛</p>
+                  <p class="timeline-en">Antique Shop</p>
+                  <p class="timeline-note">隨意逛逛，不趕時間</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">Trader Joe's 買零食水果</p>
+                  <p class="timeline-en">Trader Joe's</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Trader+Joes+St+Louis" target="_blank" class="timeline-address">Trader Joe's</a>
+                  <p class="timeline-note">買水果、零食、晚餐備用</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">傍晚</span>
+                <div>
+                  <p class="timeline-zh">華盛頓大學校園</p>
+                  <p class="timeline-en">Washington University in St. Louis (WashU)</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Washington+University+St+Louis" target="_blank" class="timeline-address">1 Brookings Dr, St. Louis, MO 63130</a>
+                  <p class="timeline-note">很漂亮的校園（約 45-60 分鐘）</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">晚上（可選）</span>
+                <div>
+                  <p class="timeline-zh">360 Rooftop Bar 看夜景</p>
+                  <p class="timeline-en">360 Rooftop Bar</p>
+                  <p class="timeline-note">看 St. Louis 夜景，可選行程</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4: Trees Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="4">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 4 · 5/12 週二</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="5"/><line x1="12" y1="13" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/>
+                  </svg>
+                  <span>動物園 + 公園</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">早餐</p>
+                  <p class="timeline-en">Breakfast</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">上午</span>
+                <div>
+                  <p class="timeline-zh">聖路易動物園（免費）</p>
+                  <p class="timeline-en">St. Louis Zoo (Free!)</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=St+Louis+Zoo" target="_blank" class="timeline-address">1 Government Dr, St. Louis, MO 63110</a>
+                  <p class="timeline-note">在 Forest Park 裡面，完全免費</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">Art Hill 藝術山丘</p>
+                  <p class="timeline-en">Art Hill</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Art+Hill+St+Louis" target="_blank" class="timeline-address">Art Hill</a>
+                  <p class="timeline-note">可以看到 Art Museum 和噴水池</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">Forest Park 繞一圈</p>
+                  <p class="timeline-en">Forest Park Walk</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Forest+Park+St+Louis" target="_blank" class="timeline-address">Forest Park, St. Louis, MO</a>
+                  <p class="timeline-note">比紐約中央公園還大</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5: Flower Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="5">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 5 · 5/13 週三</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="6" r="2"/><circle cx="7" cy="11" r="1.5"/><circle cx="17" cy="11" r="1.5"/><circle cx="9" cy="8" r="1.5"/><circle cx="15" cy="8" r="1.5"/><line x1="12" y1="8" x2="12" y2="20"/><line x1="10" y1="20" x2="14" y2="20"/>
+                  </svg>
+                  <span>植物園 + 大教堂</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">上午</span>
+                <div>
+                  <p class="timeline-zh">密蘇里植物園</p>
+                  <p class="timeline-en">Missouri Botanical Garden</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Missouri+Botanical+Garden" target="_blank" class="timeline-address">4344 Shaw Blvd, St. Louis, MO 63110</a>
+                  <p class="timeline-note">很大很漂亮，慢慢逛</p>
+                </div>
+              </div>
+              <a href="https://www.missouribotanicalgarden.org/Portals/0/PDFs/Publications/MBG%20Visitor%20Guide%202023.pdf" target="_blank" class="timeline-map-card">
+                <p class="timeline-map-title">園區地圖 PDF</p>
+                <p class="timeline-map-subtitle">點擊查看</p>
+              </a>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">聖路易大教堂</p>
+                  <p class="timeline-en">The Cathedral Basilica of St. Louis</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Cathedral+Basilica+of+St+Louis" target="_blank" class="timeline-address">4431 Lindell Blvd, St. Louis, MO 63108</a>
+                  <p class="timeline-note">世界級的馬賽克藝術，免費參觀</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 6: Mountain Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="6">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 6 · 5/14 週四</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 18 9 6 15 15 20 8 21 18"/><line x1="2" y1="18" x2="22" y2="18"/>
+                  </svg>
+                  <span>鐘乳石洞探險</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">全天</span>
+                <div>
+                  <p class="timeline-zh">Onondaga Cave 鐘乳石洞穴</p>
+                  <p class="timeline-en">Onondaga Cave State Park</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Onondaga+Cave+State+Park" target="_blank" class="timeline-address">7556 Hwy H, Leasburg, MO 65535</a>
+                  <p class="timeline-note">從 St. Louis 開車約 1.5 小時，壯觀的鐘乳石洞穴</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 7: Graduation Cap Icon, Orange (Special Day) -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-orange);"></div>
+          <div class="timeline-card timeline-card--special">
+            <div class="timeline-header" data-day="7">
+              <div class="timeline-label">
+                <span class="timeline-date timeline-date--special">DAY 7 · 5/15 週五</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12,3 22,9.5 12,16 2,9.5" fill="none"/>
+                    <path d="M6 13v4c0 2 3 4 6 4s6-2 6-4v-4"/>
+                    <line x1="22" y1="9.5" x2="22" y2="17"/>
+                    <circle cx="22" cy="18" r="1" fill="currentColor"/>
+                  </svg>
+                  <span>Rita 畢業典禮</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">早餐</p>
+                  <p class="timeline-en">Breakfast</p>
+                  <p class="timeline-note">畢業典禮前先吃飽</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午 2:00</span>
+                <div>
+                  <p class="timeline-zh">Rita 畢業典禮</p>
+                  <p class="timeline-en">SLU Graduation Ceremony</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Saint+Louis+University" target="_blank" class="timeline-address">Saint Louis University</a>
+                  <p class="timeline-note">重要日子！穿正式一點，記得帶手機拍照</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 8: Paw Print Icon, Green -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-green);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="8">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 8 · 5/16 週六</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="14" r="3"/><circle cx="6" cy="8" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 17v4"/>
+                  </svg>
+                  <span>農場 + 麋鹿</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">早上</span>
+                <div>
+                  <p class="timeline-zh">Soulard 市場</p>
+                  <p class="timeline-en">Soulard Farmers Market</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Soulard+Farmers+Market+St+Louis" target="_blank" class="timeline-address">730 Carroll St, St. Louis, MO 63104</a>
+                  <p class="timeline-note">St. Louis 最古老的農夫市場</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">中段</span>
+                <div>
+                  <p class="timeline-zh">Grant's Farm 免費農場</p>
+                  <p class="timeline-en">Grant's Farm</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Grants+Farm+St+Louis" target="_blank" class="timeline-address">10501 Gravois Rd, St. Louis, MO 63123</a>
+                  <p class="timeline-note">免費入場，可以看動物、餵山羊</p>
+                </div>
+              </div>
+              <div class="timeline-event">
+                <span class="timeline-time">下午</span>
+                <div>
+                  <p class="timeline-zh">Lone Elk Park 野生麋鹿公園</p>
+                  <p class="timeline-en">Lone Elk Park</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Lone+Elk+Park" target="_blank" class="timeline-address">1 Lone Elk Park Rd, Valley Park, MO 63088</a>
+                  <p class="timeline-note">開車進去就能看到野生麋鹿</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 9: Clock Icon, Disabled -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--ink-disable);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="9">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 9 · 5/17 週日</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span>規劃中</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-placeholder">
+                <p class="timeline-placeholder-text">行程規劃中 ⏳</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 10: Alert Triangle Icon, Orange -->
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background-color: var(--accent-orange);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="10">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 10 · 5/18 週一</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3.05h16.94a2 2 0 0 0 1.71-3.05l-8.47-14.14a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                  </svg>
+                  <span>前往機場</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">晚上</span>
+                <div>
+                  <p class="timeline-zh">前往 ORD 機場</p>
+                  <p class="timeline-en">Drive to O'Hare Airport</p>
+                  <p class="timeline-note">晚上 9 點前要到機場 check-in</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 11: Plane Icon, Orange (Last Day) -->
+        <div class="timeline-item timeline-item--last">
+          <div class="timeline-dot" style="background-color: var(--accent-orange);"></div>
+          <div class="timeline-card" data-expanded="false">
+            <div class="timeline-header" data-day="11">
+              <div class="timeline-label">
+                <span class="timeline-date">DAY 11 · 5/19 週二</span>
+                <div class="timeline-title">
+                  <svg class="timeline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                  </svg>
+                  <span>回台灣</span>
+                </div>
+              </div>
+              <svg class="timeline-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-event">
+                <span class="timeline-time">凌晨 00:30</span>
+                <div>
+                  <p class="timeline-zh">搭機回台灣</p>
+                  <p class="timeline-en">EVA Air BR 55 · ORD → TPE</p>
+                  <p class="timeline-note">凌晨班機，5/20 早上 05:00 抵達台北</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .timeline -->
+
+    </div><!-- .inner-page -->
+  </div><!-- [data-page="itinerary"] -->
+
+  <!-- 天際線背景 -->
+  <div class="skyline-bg"></div>
+
+</div><!-- #app -->
+
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js');
+    });
+  }
+</script>
+</body>
+</html>
